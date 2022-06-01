@@ -1,0 +1,30 @@
+.repo {
+    padding: 10px;
+}
+
+.repo__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.repo__avatar {
+    padding: 5px;
+    margin-right: 10px;
+    
+}
+
+.repo__avatar img {
+    max-width: 100px;
+}
+
+.repo__info-others {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    
+}
+.repo__info-others button {
+    margin-right: 10px;
+    padding: 4px;
+}
