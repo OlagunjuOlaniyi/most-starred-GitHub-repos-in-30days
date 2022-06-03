@@ -4,20 +4,13 @@ import axios from "axios";
 import Header from "./Components/Header/Header";
 import Repo from "./Components/Repo/Repo";
 
-const url =
-  "https://api.github.com/search/repositories?q=created:>2022-05-01&sort=stars&order=desc";
+// const url =
+//   "https://api.github.com/search/repositories?q=created:>2022-05-01&sort=stars&order=desc";
 
 function App() {
   const [repo, setRepo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
-
-  // const getUser = async () => {
-  //   const response = await fetch(url);
-  //   const users = await response.json();
-
-  //   setRepo(users.items);
-  // };
 
   //Check Pages
   const checkNumber = (check) => {
@@ -52,17 +45,15 @@ function App() {
         .get(
           `https://api.github.com/search/repositories?q=created:>2022-05-01&sort=stars&order=desc&page=${page}`
         )
-        .then((el) => {
-          const data = el.data.items;
+        .then((response) => {
+          const data = response.data.items;
           setRepo(data);
         });
     } catch (error) {
-      error.setRepo();
+      console.log(error.response);
     }
 
-    // getUser();
-
-    setIsLoading(false);
+    etIsLoading(false);
   }, [page]);
 
   console.log(repo);
@@ -83,7 +74,7 @@ function App() {
         <button onClick={() => prevPage()}>Prev</button>
         <button onClick={() => nextPage()}>Next</button>
       </div>
-  
+
       {repo.map((repos) => {
         return <Repo key={repos.id} repos={repos} />;
       })}
