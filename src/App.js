@@ -4,8 +4,8 @@ import axios from "axios";
 import Header from "./Components/Header/Header";
 import Repo from "./Components/Repo/Repo";
 
-// const url =
-//   "https://api.github.com/search/repositories?q=created:>2022-05-01&sort=stars&order=desc";
+const url =
+  "https://api.github.com/search/repositories?q=created:>2022-05-01&sort=stars&order=desc";
 
 function App() {
   const [repo, setRepo] = useState(null);
@@ -53,7 +53,7 @@ function App() {
       console.log(error.response);
     }
 
-    etIsLoading(false);
+    setIsLoading(false);
   }, [page]);
 
   console.log(repo);
